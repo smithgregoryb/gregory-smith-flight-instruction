@@ -1,9 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import { supabase } from "@/lib/supabase";
 
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
+
+  const [approvedReviews, setApprovedReviews] = useState<
+  { id: number; name: string; rating: number; comment: string }[]
+>([]);
+
+useEffect(() => {
+  async function loadApprovedReviews() {
+    const { data, error } = await supabase
+      .from("reviews")
+      .select("id, name, rating, comment")
+      .eq("status", "approved")
+      .order("created_at", { ascending: false });
+
+    if (!error && data) {
+      setApprovedReviews(data);
+    }
+  }
+
+  loadApprovedReviews();
+}, []);
 
   const [commentSubmitted, setCommentSubmitted] = useState(false);
 
@@ -35,19 +57,35 @@ async function handleCommentSubmit(
   const form = event.currentTarget;
   const formData = new FormData(form);
 
-  const response = await fetch("https://formspree.io/f/myeybbkp", {
+  const name = String(formData.get("reviewer_name") || "");
+  const rating = parseInt(String(formData.get("rating") || "0"), 10);
+  const comment = String(formData.get("comment") || "");
+
+  const response = await fetch("/api/reviews", {
     method: "POST",
-    body: formData,
     headers: {
-      Accept: "application/json",
+      "Content-Type": "application/json",
     },
+    body: JSON.stringify({
+      name,
+      rating,
+      comment,
+    }),
   });
 
   if (response.ok) {
     setCommentSubmitted(true);
     form.reset();
+  } else {
+    alert("There was a problem submitting your review. Please try again.");
   }
 }
+
+
+
+ 
+
+
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
@@ -215,6 +253,35 @@ className="rounded-lg border-2 border-white bg-black/30 px-6 py-3 font-semibold 
     </div>
   </div>
 </section>
+
+<section className="bg-slate-900 px-6 py-20 text-white">
+  <div className="mx-auto max-w-6xl">
+    <div className="text-center">
+      <p className="text-sm font-bold uppercase tracking-widest text-sky-400">
+        CFI Endorsement Trainer
+      </p>
+
+      <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
+        Preparing for Your CFI Checkride?
+      </h2>
+
+      <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+        Practice real-world endorsement scenarios and test your knowledge with
+        the CFI Endorsement Trainer.
+      </p>
+
+      <a
+        href="https://cfi-endorsement-trainer.vercel.app"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-8 inline-block rounded-lg bg-sky-500 px-7 py-3 font-semibold text-white transition hover:bg-sky-400"
+      >
+        Try the CFI Endorsement Trainer
+      </a>
+    </div>
+  </div>
+</section>
+
 <section id="contact" className="bg-slate-950 px-6 py-24 text-white">
   <div className="mx-auto max-w-6xl">
     <div className="text-center">
@@ -373,7 +440,31 @@ className="rounded-lg border-2 border-white bg-black/30 px-6 py-3 font-semibold 
       </p>
     </div>
 
-  
+  <div className="mt-10">
+  <h3 className="text-xl font-bold text-white text-center">
+    Approved Student Reviews
+  </h3>
+
+ {approvedReviews.length === 0 ? (
+  <p className="mt-4 text-slate-400 text-center">
+    Approved reviews will appear here.
+  </p>
+) : (
+  <div className="mt-4 space-y-4">
+    {approvedReviews.map((review) => (
+      <div key={review.id} className="rounded-xl border border-slate-700 p-4">
+        <div className="font-semibold text-white">{review.name}</div>
+        <div className="text-yellow-400">
+          {"★".repeat(review.rating)}
+        </div>
+        <p className="mt-2 text-slate-300">{review.comment}</p>
+      </div>
+    ))}
+  </div>
+)}
+</div>
+
+
 
     <div className="mt-10">
       {commentSubmitted ? (
