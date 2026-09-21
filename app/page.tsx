@@ -123,13 +123,11 @@ async function handleCommentSubmit(
 
           <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
             Gregory Smith
-            <span className="block text-sky-400">Flight Instruction</span>
+            <span className="block text-sky-400">Flight Instruction in Long Beach, CA</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Professional, personalized flight instruction focused on safety,
-            confidence, and real-world flying skills.
-          </p>
+Personalized flight instruction in Long Beach, California, serving student pilots and aircraft owners at Long Beach Airport (KLGB) and throughout Southern California.          </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a

@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gregory Smith Flight Instruction",
+  title: "Flight Instructor Long Beach, CA | Gregory Smith",
   description:
-    "Professional, personalized flight instruction in Southern California with Gregory Smith, CFI.",
+    "Certified Flight Instructor providing personalized flight instruction in Long Beach, CA at Long Beach Airport (KLGB) and throughout Southern California.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
