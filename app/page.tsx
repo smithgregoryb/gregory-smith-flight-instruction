@@ -29,6 +29,23 @@ useEffect(() => {
 
   const [commentSubmitted, setCommentSubmitted] = useState(false);
 
+const flightPhotos = [
+  "/flight-training/flight-1.png",
+  "/flight-training/flight-2.png",
+  "/flight-training/flight-3.png",
+  "/flight-training/flight-4.png",
+];
+
+const [currentPhoto, setCurrentPhoto] = useState(0);
+
+useEffect(() => {
+  const timer = setInterval(() => {
+    setCurrentPhoto((current) => (current + 1) % flightPhotos.length);
+  }, 5000);
+
+  return () => clearInterval(timer);
+}, []);
+
 async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
   event.preventDefault();
 
@@ -205,6 +222,85 @@ className="rounded-lg border-2 border-white bg-black/30 px-6 py-3 font-semibold 
   </div>
 </div>
 </div>
+</section>
+
+<section className="bg-sky-50 px-6 py-20 text-slate-900">
+  <div className="mx-auto max-w-4xl text-center">
+    <p className="text-sm font-bold uppercase tracking-[0.3em] text-sky-600">
+      Long Beach Flight Training
+    </p>
+
+    <h2 className="mt-3 text-4xl font-bold">
+      Flight Instruction at Long Beach Airport (KLGB)
+    </h2>
+
+    <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600">
+      Looking for a flight instructor in Long Beach, California? I provide
+      personalized one-on-one flight and ground instruction for student pilots,
+      private pilots, aircraft owners, and pilots working toward greater
+      proficiency. Training is available at Long Beach Airport (KLGB) and
+      throughout Southern California.
+    </p>
+  </div>
+</section>
+
+<section className="bg-white px-6 py-24 text-slate-900">
+  <div className="mx-auto max-w-5xl text-center">
+    <p className="text-sm font-bold uppercase tracking-[0.3em] text-sky-600">
+      Flight Training in Action
+    </p>
+
+    <h2 className="mt-3 text-4xl font-bold">
+      Experience Flight Training
+    </h2>
+
+    <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-600">
+      A look inside real-world flight training and the experiences that
+      help build safe, confident pilots.
+    </p>
+
+<div className="relative mx-auto mt-10 max-w-2xl overflow-hidden rounded-2xl bg-slate-900 shadow-xl">      <img
+        src={flightPhotos[currentPhoto]}
+        alt="Flight training with Gregory Smith, Certified Flight Instructor"
+        className="h-[550px] w-full object-contain"
+      />
+
+      <button
+        onClick={() =>
+          setCurrentPhoto(
+            (currentPhoto - 1 + flightPhotos.length) % flightPhotos.length
+          )
+        }
+        className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 px-4 py-3 text-2xl text-white hover:bg-black/70"
+        aria-label="Previous photo"
+      >
+        ‹
+      </button>
+
+      <button
+        onClick={() =>
+          setCurrentPhoto((currentPhoto + 1) % flightPhotos.length)
+        }
+        className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 px-4 py-3 text-2xl text-white hover:bg-black/70"
+        aria-label="Next photo"
+      >
+        ›
+      </button>
+    </div>
+
+    <div className="mt-5 flex justify-center gap-2">
+      {flightPhotos.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => setCurrentPhoto(index)}
+          className={`h-3 w-3 rounded-full ${
+            currentPhoto === index ? "bg-sky-500" : "bg-slate-300"
+          }`}
+          aria-label={`View photo ${index + 1}`}
+        />
+      ))}
+    </div>
+  </div>
 </section>
 
 <section id="about" className="bg-slate-100 px-6 py-24 text-slate-900">
