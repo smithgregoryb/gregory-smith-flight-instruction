@@ -34,6 +34,9 @@ const flightPhotos = [
   "/flight-training/flight-2.png",
   "/flight-training/flight-3.png",
   "/flight-training/flight-4.png",
+"/gregory-flying.jpg",
+"/sunset-airport.jpeg",
+"/wing-mountains.jpg",
 ];
 
 const [currentPhoto, setCurrentPhoto] = useState(0);
@@ -258,6 +261,20 @@ className="rounded-lg border-2 border-white bg-black/30 px-6 py-3 font-semibold 
       A look inside real-world flight training and the experiences that
       help build safe, confident pilots.
     </p>
+
+
+<div className="mx-auto mt-10 max-w-sm">
+  <video
+    src="/cfi-promo.mp4"
+    controls
+    playsInline
+    className="w-full rounded-2xl shadow-2xl"
+  />
+</div>
+
+<p className="mt-4 text-sm text-slate-400">
+  See what flight training looks like in the cockpit and in the air.
+</p>
 
 <div className="relative mx-auto mt-10 max-w-2xl overflow-hidden rounded-2xl bg-slate-900 shadow-xl">      <img
         src={flightPhotos[currentPhoto]}
