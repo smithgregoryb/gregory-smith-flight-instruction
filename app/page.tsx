@@ -34,9 +34,9 @@ const flightPhotos = [
   "/flight-training/flight-2.png",
   "/flight-training/flight-3.png",
   "/flight-training/flight-4.png",
-"/gregory-flying.jpg",
+"/gregory-flying.png",
 "/sunset-airport.jpeg",
-"/wing-mountains.jpg",
+"/wing-mountains.png",
 ];
 
 const [currentPhoto, setCurrentPhoto] = useState(0);
