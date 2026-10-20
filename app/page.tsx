@@ -159,20 +159,32 @@ async function handleCommentSubmit(
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
 Personalized flight instruction in Long Beach, California, serving student pilots and aircraft owners at Long Beach Airport (KLGB) and throughout Southern California.          </p>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
             <a
               href="#contact"
-              className="rounded-lg bg-sky-500 px-6 py-3 font-semibold text-white transition hover:bg-sky-400"
+              className="w-full rounded-xl bg-sky-500 px-8 py-4 text-center text-lg font-bold text-white shadow-lg transition hover:bg-sky-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto"
             >
               Schedule a Lesson
             </a>
-
             <a
-              href="#services"
-className="rounded-lg border-2 border-white bg-black/30 px-6 py-3 font-semibold text-white transition hover:bg-white hover:text-slate-900"            >
-              View Instruction
+              href="tel:+17608870222"
+              className="w-full rounded-xl border-2 border-white bg-white px-8 py-4 text-center text-lg font-bold text-slate-950 shadow-lg transition hover:bg-sky-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto"
+            >
+              Call Gregory
+            </a>
+            <a
+              href="sms:+17608870222"
+              className="w-full rounded-xl border-2 border-white bg-slate-950/70 px-8 py-4 text-center text-lg font-bold text-white shadow-lg transition hover:bg-slate-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto"
+            >
+              Text Gregory
             </a>
           </div>
+          <a
+            href="#services"
+            className="mt-6 inline-block text-base font-semibold text-white underline underline-offset-4 transition hover:text-sky-200"
+          >
+            Explore flight training options ↓
+          </a>
         </div>
       </section>
       <section id="services" className="bg-white px-6 py-24 text-slate-900">
