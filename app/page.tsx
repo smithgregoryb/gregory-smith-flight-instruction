@@ -13,6 +13,7 @@ export default function Home() {
 
 useEffect(() => {
   async function loadApprovedReviews() {
+    if (!supabase) return;
     const { data, error } = await supabase
       .from("reviews")
       .select("id, name, rating, comment")
