@@ -125,10 +125,19 @@ async function handleCommentSubmit(
       <a href="#services" className="hover:text-sky-400">
         Flight Training
       </a>
+      <a href="#pricing" className="hover:text-sky-400">
+        Rates
+      </a>
+      <a href="#start" className="hover:text-sky-400">
+        Get Started
+      </a>
       <a href="#contact" className="hover:text-sky-400">
         Contact
       </a>
     </div>
+    <a href="tel:+17608870222" className="rounded-lg border border-sky-400/60 bg-slate-950/70 px-4 py-2 text-sm font-semibold text-white transition hover:bg-sky-600">
+      Call Gregory
+    </a>
   </div>
 </nav>
       <section
@@ -227,6 +236,66 @@ className="rounded-lg border-2 border-white bg-black/30 px-6 py-3 font-semibold 
 </div>
 </section>
 
+<section id="pricing" className="bg-slate-900 px-6 py-20 text-white">
+  <div className="mx-auto max-w-5xl">
+    <div className="text-center">
+      <p className="text-sm font-bold uppercase tracking-[0.3em] text-sky-400">Straightforward Pricing</p>
+      <h2 className="mt-3 text-4xl font-bold">Flight Instruction Rates</h2>
+      <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+        Personalized instruction designed around your experience and aviation goals.
+      </p>
+    </div>
+    <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-sky-400/30 bg-slate-950 p-8 text-center shadow-xl sm:p-10">
+      <p className="text-lg font-semibold text-sky-300">Flight Instruction</p>
+      <p className="mt-4 text-5xl font-bold">$50<span className="text-xl font-medium text-slate-300"> / hour</span></p>
+      <p className="mt-6 leading-7 text-slate-300">
+        Aircraft rental is billed separately. Rental rates depend on the aircraft and rental provider,
+        and aircraft availability must be confirmed before scheduling.
+      </p>
+      <p className="mt-3 text-sm leading-6 text-slate-400">
+        Contact me about discovery flights, ground lessons, and a training plan tailored to you.
+      </p>
+      <div className="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="#contact" className="rounded-lg bg-sky-500 px-5 py-3 font-semibold text-white hover:bg-sky-400">
+          Ask About Lessons
+        </a>
+        <a href="tel:+17608870222" className="rounded-lg border border-slate-500 px-5 py-3 font-semibold hover:border-sky-400">
+          Call Gregory
+        </a>
+        <a href="sms:+17608870222" className="rounded-lg border border-slate-500 px-5 py-3 font-semibold hover:border-sky-400">
+          Text Gregory
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="start" className="bg-white px-6 py-20 text-slate-900">
+  <div className="mx-auto max-w-6xl text-center">
+    <p className="text-sm font-bold uppercase tracking-[0.3em] text-sky-600">Your First Step</p>
+    <h2 className="mt-3 text-4xl font-bold">How to Get Started</h2>
+    <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-600">
+      New to flying or returning to the cockpit? Here is how we can get started.
+    </p>
+    <div className="mt-10 grid gap-6 text-left md:grid-cols-3">
+      {[
+        { number: "01", title: "Get in Touch", detail: "Tell me about your experience, goals, and preferred training area." },
+        { number: "02", title: "Make a Plan", detail: "We will discuss your next steps, lesson options, and aircraft availability." },
+        { number: "03", title: "Schedule a Lesson", detail: "Once we confirm the aircraft and a suitable time, we can get your training underway." },
+      ].map((step) => (
+        <div key={step.number} className="rounded-2xl border border-slate-200 p-7 shadow-sm">
+          <p className="text-sm font-bold text-sky-600">{step.number}</p>
+          <h3 className="mt-3 text-xl font-bold">{step.title}</h3>
+          <p className="mt-3 leading-7 text-slate-600">{step.detail}</p>
+        </div>
+      ))}
+    </div>
+    <a href="#contact" className="mt-9 inline-block rounded-lg bg-sky-600 px-7 py-3 font-semibold text-white hover:bg-sky-500">
+      Get in Touch
+    </a>
+  </div>
+</section>
+
 <section className="bg-sky-50 px-6 py-20 text-slate-900">
   <div className="mx-auto max-w-4xl text-center">
     <p className="text-sm font-bold uppercase tracking-[0.3em] text-sky-600">
@@ -244,6 +313,36 @@ className="rounded-lg border-2 border-white bg-black/30 px-6 py-3 font-semibold 
       proficiency. Training is available at Long Beach Airport (KLGB) and
       throughout Southern California.
     </p>
+  </div>
+</section>
+
+<section id="locations" className="bg-slate-100 px-6 py-20 text-slate-900">
+  <div className="mx-auto max-w-6xl">
+    <div className="text-center">
+      <p className="text-sm font-bold uppercase tracking-[0.3em] text-sky-600">Training Areas</p>
+      <h2 className="mt-3 text-4xl font-bold">Where You Can Train</h2>
+      <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-600">
+        Explore flight instruction in Long Beach and Apple Valley. Lesson location and aircraft
+        availability are confirmed before booking.
+      </p>
+    </div>
+    <div className="mt-10 grid gap-6 md:grid-cols-3">
+      <a href="/flight-lessons-long-beach" className="rounded-2xl bg-white p-7 shadow-sm transition hover:shadow-lg">
+        <h3 className="text-xl font-bold">Long Beach (KLGB)</h3>
+        <p className="mt-3 leading-7 text-slate-600">Personalized flight instruction at Long Beach Airport.</p>
+        <p className="mt-5 font-semibold text-sky-700">Explore Long Beach lessons →</p>
+      </a>
+      <a href="/flight-training-apple-valley" className="rounded-2xl bg-white p-7 shadow-sm transition hover:shadow-lg">
+        <h3 className="text-xl font-bold">Apple Valley (KAPV)</h3>
+        <p className="mt-3 leading-7 text-slate-600">Flight training options in the High Desert.</p>
+        <p className="mt-5 font-semibold text-sky-700">Explore Apple Valley training →</p>
+      </a>
+      <a href="/private-pilot-training" className="rounded-2xl bg-white p-7 shadow-sm transition hover:shadow-lg">
+        <h3 className="text-xl font-bold">Private Pilot Training</h3>
+        <p className="mt-3 leading-7 text-slate-600">Learn about the steps toward your Private Pilot Certificate.</p>
+        <p className="mt-5 font-semibold text-sky-700">Explore private pilot training →</p>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -408,6 +507,10 @@ className="rounded-lg border-2 border-white bg-black/30 px-6 py-3 font-semibold 
         Tell me a little about your flight-training goals and I’ll get back to
         you about availability and next steps.
       </p>
+      <div className="mt-7 flex flex-wrap justify-center gap-3">
+        <a href="tel:+17608870222" className="rounded-lg border border-sky-400 px-5 py-3 font-semibold text-white hover:bg-slate-800">Call Gregory</a>
+        <a href="sms:+17608870222" className="rounded-lg border border-sky-400 px-5 py-3 font-semibold text-white hover:bg-slate-800">Text Gregory</a>
+      </div>
     </div>
 
     <div className="mx-auto mt-12 max-w-3xl rounded-2xl bg-white p-8 text-slate-900 shadow-xl">
@@ -551,29 +654,20 @@ className="rounded-lg border-2 border-white bg-black/30 px-6 py-3 font-semibold 
       </p>
     </div>
 
-  <div className="mt-10">
-  <h3 className="text-xl font-bold text-white text-center">
-    Approved Student Reviews
-  </h3>
-
- {approvedReviews.length === 0 ? (
-  <p className="mt-4 text-slate-400 text-center">
-    Approved reviews will appear here.
-  </p>
-) : (
-  <div className="mt-4 space-y-4">
-    {approvedReviews.map((review) => (
-      <div key={review.id} className="rounded-xl border border-slate-700 p-4">
-        <div className="font-semibold text-white">{review.name}</div>
-        <div className="text-yellow-400">
-          {"★".repeat(review.rating)}
-        </div>
-        <p className="mt-2 text-slate-300">{review.comment}</p>
+  {approvedReviews.length > 0 && (
+    <div className="mt-10">
+      <h3 className="text-center text-xl font-bold text-white">Approved Student Reviews</h3>
+      <div className="mt-4 space-y-4">
+        {approvedReviews.map((review) => (
+          <div key={review.id} className="rounded-xl border border-slate-700 p-4">
+            <div className="font-semibold text-white">{review.name}</div>
+            <div className="text-yellow-400">{"★".repeat(review.rating)}</div>
+            <p className="mt-2 text-slate-300">{review.comment}</p>
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
-)}
-</div>
+    </div>
+  )}
 
 
 
